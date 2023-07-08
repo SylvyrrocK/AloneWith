@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c250c40c663a154baa10db17d3a88ed, type: 3}
+  m_Name: WayCreatorRoom
+  m_EditorClassIdentifier: 
+  Waypoints:
+  - _WaypointID: 1
+    _WaypointPosition: {x: 10, y: 10, z: 0}
+    _PanicWeight: 0
+    _CanInteract: []
+  - _WaypointID: 2
+    _WaypointPosition: {x: 15, y: 15, z: 0}
+    _PanicWeight: 0
+    _CanInteract: []
+  - _WaypointID: 3
+    _WaypointPosition: {x: 17, y: -11, z: 0}
+    _PanicWeight: 0
+    _CanInteract: []
+  - _WaypointID: 4
+    _WaypointPosition: {x: 21, y: 14, z: 0}
+    _PanicWeight: 0
+    _CanInteract: []

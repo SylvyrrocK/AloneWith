@@ -2804,6 +2804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1682372958}
+  - component: {fileID: 1682372959}
   m_Layer: 0
   m_Name: PathEnemy
   m_TagString: Untagged
@@ -2826,6 +2827,23 @@ Transform:
   m_Father: {fileID: 473346317}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1682372959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682372957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53298de1cef3ef4bbb7ef55334916e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Settings: {fileID: 11400000, guid: f3be4a58759835f40ad6eaf185958c08, type: 2}
+  WaypointObject: {fileID: 3100349300432045858, guid: b9f7b6dc3878e5a40bc6e8ee4ecc7ea8, type: 3}
+  CreationDebug: 1
+  GenerateOnStartScene: 1
+  Waypoints: []
 --- !u!1 &1737150697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,6 +2989,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1807508337}
   - component: {fileID: 1807508336}
+  - component: {fileID: 1807508338}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -3045,6 +3064,18 @@ Transform:
   m_Father: {fileID: 473346317}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1807508338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807508335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3487ef60c42c436429eb9607adbd1134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1881903038 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1032559707992380932, guid: 08e3b8798a7ce9742ad5684e93028733, type: 3}
