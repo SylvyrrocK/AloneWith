@@ -39,10 +39,15 @@ public class PanicBar : MonoBehaviour
       }else{
       WarningObject.SetActive(false);
       }
-      
+      if(Value > MaximumValue){
+        Value = MaximumValue;
+      }
+      if(Value < 0f){
+        Value = 0f;
+      }
     }
 
-//PRIVATE VOID
+//PRIVATE VOID ---
     private void ChangeViewValues()
     {
        ViewValue = Mathf.Lerp(ViewValue, Value, SmoothTime * 0.5f * Time.deltaTime);
@@ -50,11 +55,11 @@ public class PanicBar : MonoBehaviour
     }
     private void ChangeVisibility(bool SetVisibility)
     {
-             
+      //REWORK!!!
     }
 
-//PUBLIC VOIDS
-    public void ChangeValueTo(float TargetValue)
+//PUBLIC VOIDS ---
+    public void SetValueTo(float TargetValue)
     {
         if(TargetValue <= MaximumValue)
         {
@@ -62,7 +67,7 @@ public class PanicBar : MonoBehaviour
         }
     }
 
-    public void AddValue(float AddValue)
+    public void ChangeValue(float AddValue)
     {
         if(AddValue <= MaximumValue)
         {
