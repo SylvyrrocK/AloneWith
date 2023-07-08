@@ -1,3 +1,4 @@
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -14,10 +15,13 @@ public class PanicBar : MonoBehaviour
     [SerializeField] private Image BarBackgroundImage;
     [SerializeField] private Image BarFillImage;
     [SerializeField] private GameObject WarningObject;
-
-    private bool FadeInOut = false;
-    private float TimeScale = 1;
     private float ViewValue = 0f;
+
+    //->>> ACTIONS - OnPanicValueChanged | OnPanicWarning | OnPanicWarningCancel <<<-
+    public static UnityEvent<float> OnPanicValueChanged = new UnityEvent<float>();
+    public static UnityEvent OnPanicWarning = new UnityEvent();
+    public static UnityEvent OnPanicWarningCancel = new UnityEvent();
+
     void Start()
     {
         BarSlider.maxValue = MaximumValue;
@@ -36,8 +40,10 @@ public class PanicBar : MonoBehaviour
 
       if(Value >= WarningValue && WarningObject.activeSelf == false){
       WarningObject.SetActive(true);
+      OnPanicWarning.Invoke();
       }else if(Value < WarningValue && WarningObject.activeSelf == true){
       WarningObject.SetActive(false);
+      OnPanicWarningCancel.Invoke();
       }
 
       if(Value > MaximumValue){
@@ -65,6 +71,11 @@ public class PanicBar : MonoBehaviour
         if(TargetValue <= MaximumValue)
         {
             Value = TargetValue;
+            OnPanicValueChanged.Invoke(Value);
+        }
+        else
+        {
+          Debug.LogAssertion("Set Value too large");
         }
     }
 
@@ -73,6 +84,11 @@ public class PanicBar : MonoBehaviour
         if(AddValue <= MaximumValue)
         {
             Value += AddValue;
+            OnPanicValueChanged.Invoke(Value);
+        }
+        else
+        {
+          Debug.LogAssertion("Add Value too large");
         }
     }
     public void ResetValue()
@@ -80,6 +96,7 @@ public class PanicBar : MonoBehaviour
         if(Value > 0f)
         {
             Value = 0f;
+            OnPanicValueChanged.Invoke(Value);
         }
     }
     public void GetValue(string GetType) // ViewValue | Value
