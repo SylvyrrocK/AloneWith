@@ -23,5 +23,6 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         gameOverUI.SetActive(true);
+        Time.timeScale = 0;
     }
 }
