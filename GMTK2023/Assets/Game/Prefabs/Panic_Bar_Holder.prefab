@@ -86,6 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1032559707992380932}
   - component: {fileID: 5580076021686329548}
+  - component: {fileID: 424192243160167978}
   m_Layer: 5
   m_Name: Panic_Bar_Holder
   m_TagString: Untagged
@@ -108,7 +109,7 @@ RectTransform:
   - {fileID: 5709759849610856651}
   - {fileID: 2839599898642167666}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -123,6 +124,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997065305299034243}
   m_CullTransparentMesh: 1
+--- !u!114 &424192243160167978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997065305299034243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3650671a0fae31e4d8db073bd9f6475a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value: 0
+  MaximumValue: 100
+  WarningValue: 80
+  SmoothTime: 15
+  BarSlider: {fileID: 4534262292764400042}
+  BarBackgroundImage: {fileID: 5846480572347493817}
+  BarFillImage: {fileID: 0}
+  WarningObject: {fileID: 6126264343212445917}
 --- !u!1 &2668519845816029804
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +154,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2839599898642167666}
   - component: {fileID: 4534262292764400042}
-  - component: {fileID: 8912549011475851691}
   m_Layer: 5
   m_Name: Panic_Bar
   m_TagString: Untagged
@@ -214,26 +234,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8912549011475851691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2668519845816029804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3650671a0fae31e4d8db073bd9f6475a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Value: 0
-  MaximumValue: 100
-  WarningValue: 80
-  SmoothTime: 15
-  BarSlider: {fileID: 4534262292764400042}
-  BarBackgroundImage: {fileID: 5846480572347493817}
-  BarFillImage: {fileID: 0}
-  WarningObject: {fileID: 6126264343212445917}
 --- !u!1 &4249867841671867777
 GameObject:
   m_ObjectHideFlags: 0

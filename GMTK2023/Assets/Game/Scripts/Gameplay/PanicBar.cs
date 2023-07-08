@@ -34,11 +34,12 @@ public class PanicBar : MonoBehaviour
         ChangeVisibility(false);
       }
 
-      if(Value >= WarningValue){
+      if(Value >= WarningValue && WarningObject.activeSelf == false){
       WarningObject.SetActive(true);
-      }else{
+      }else if(Value < WarningValue && WarningObject.activeSelf == true){
       WarningObject.SetActive(false);
       }
+
       if(Value > MaximumValue){
         Value = MaximumValue;
       }
