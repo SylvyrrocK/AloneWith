@@ -314,7 +314,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1981290981}
         m_TargetAssemblyTypeName: PanicBar, Assembly-CSharp
         m_MethodName: ChangeValue
         m_Mode: 4
@@ -3476,9 +3476,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1981290980}
+      - m_Target: {fileID: 1981290981}
         m_TargetAssemblyTypeName: PanicBar, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: ResetValue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3656,7 +3656,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1981290981}
         m_TargetAssemblyTypeName: PanicBar, Assembly-CSharp
         m_MethodName: ChangeValue
         m_Mode: 4
@@ -4880,7 +4880,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1981290981}
         m_TargetAssemblyTypeName: PanicBar, Assembly-CSharp
         m_MethodName: SetValueTo
         m_Mode: 4
@@ -4930,11 +4930,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971847283}
   m_CullTransparentMesh: 1
---- !u!1 &1981290980 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1997065305299034243, guid: 08e3b8798a7ce9742ad5684e93028733, type: 3}
+--- !u!114 &1981290981 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 424192243160167978, guid: 08e3b8798a7ce9742ad5684e93028733, type: 3}
   m_PrefabInstance: {fileID: 1544699844}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3650671a0fae31e4d8db073bd9f6475a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2111124408
 GameObject:
   m_ObjectHideFlags: 0
