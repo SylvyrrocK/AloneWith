@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Waypoints:
   - _WaypointID: 1
-    _WaypointPosition: {x: 0.87, y: -8.58, z: 1325.046}
+    _WaypointPosition: {x: 0.87, y: -10.8, z: 1325.046}
     _PanicWeight: 0.15
     _CanInteract: []
   - _WaypointID: 2
-    _WaypointPosition: {x: -1.38, y: -8.71, z: 1325.046}
+    _WaypointPosition: {x: -1.38, y: -9.88, z: 1325.046}
     _PanicWeight: 0.38
     _CanInteract: []
   - _WaypointID: 3
-    _WaypointPosition: {x: -3.69, y: -8.65, z: 1325.046}
+    _WaypointPosition: {x: -3.69, y: -8.76, z: 1325.046}
     _PanicWeight: 0.83
     _CanInteract: []

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -13,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
 [SerializeField] private float WalkProgress;
 [SerializeField] private PanicBar PanicBar;
 [SerializeField] private Animator EnemyAnimator;
+[SerializeField] private PlayerStats PSTST;
 
 
 void Start()
@@ -49,10 +51,12 @@ WalkTo(gameObject.transform.position, true);
 public void Hide()
 {
 EnemyAnimator.SetBool("WALK", false);
+PSTST.isActive = false;
 }
 
 public void WalkTo(Vector3 WalkPosition, bool Smooth)
 {
+  PSTST.isActive = true;
   Waypoint SelectedWaypoint = WayCreator.GetWaypointByID(WayID);
 
   if(Smooth == true){
@@ -64,9 +68,9 @@ public void WalkTo(Vector3 WalkPosition, bool Smooth)
     {
       Debug.LogError("NERABOTAET");
     }
-    if(gameObject.transform.position.x == SelectedWaypoint.GetWaypointPosition().x)
+    if((Mathf.Abs(SelectedWaypoint.gameObject.transform.position.x-gameObject.transform.position.x))<1)
     {
-    TryIDWay = SelectedWaypoint.GetWaypointID();
+    //TryIDWay = SelectedWaypoint.GetWaypointID();
     PanicBar.ChangeValue(SelectedWaypoint.GetPanicWeight());
     }
   }
