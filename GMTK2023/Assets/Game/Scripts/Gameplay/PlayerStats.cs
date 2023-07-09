@@ -7,16 +7,18 @@ public class PlayerStats : MonoBehaviour
     [Header("Player Stats:")]
     public float panicLevel;
 
-    public GameController gameController;
+    [SerializeField] GameController gameController;
 
     [Header("Game Object:")]
-    public GameObject kidFlashlight;
-    public GameObject kidWakeUpWarning;
-    public GameObject kidSleep;
-    public GameObject kidFeet1;
-    public GameObject kidFeet2;
+    [SerializeField] GameObject kidFlashlight;
+    [SerializeField] GameObject kidWakeUpWarning;
+    [SerializeField] GameObject kidSleep;
+    [SerializeField] GameObject kidFeet1;
+    [SerializeField] GameObject kidFeet2;
 
+    public GameObject enemySprite;
 
+    public bool isActive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,7 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-       if (panicLevel >= 2)
+       if (panicLevel >= 5)
         {
             gameController.LevelCompleted();
         }
@@ -42,8 +44,6 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator RandomWaiter()
     {
-        Debug.Log("Kid woke up");
-
         //Warning sign timer
         int wait_time = Random.Range(2, 3);
         yield return new WaitForSeconds(wait_time);
@@ -55,10 +55,7 @@ public class PlayerStats : MonoBehaviour
         RemoveKidSprite();
         kidFlashlight.SetActive(true);
 
-        //Back to normal state timer
-        int wait_time3 = Random.Range(2, 3);
-        yield return new WaitForSeconds(wait_time);
-        if (panicLevel >= 3) // TODO: UPDATE LOSE CONDITIONS
+        if (isActive) // TODO: UPDATE Game over CONDITIONS
         {
             gameController.GameOver();
         }
@@ -67,7 +64,11 @@ public class PlayerStats : MonoBehaviour
             RemoveKidSprite();
             kidSleep.SetActive(true);
         }
-        Debug.Log("Kid woke up");
+        Debug.Log("Kid is sleeping");
+
+        //Back to normal state timer
+        int wait_time3 = Random.Range(2, 3);
+        yield return new WaitForSeconds(wait_time);
     }
 
     public void KidWakeUp()

@@ -23,7 +23,7 @@ public class OutlineSelection : MonoBehaviour
     void OnMouseEnter()
     {
             objectRender.material.color = new Color(0f, 0f, 1f, 1f);
-            Debug.Log("COLOR");
+            //Debug.Log("COLOR");
     }
 
     void OnMouseExit()
