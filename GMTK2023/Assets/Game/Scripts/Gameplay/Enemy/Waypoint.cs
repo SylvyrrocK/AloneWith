@@ -20,4 +20,9 @@ public void ChangeCanInteract(List<GameObject> newCanInteract){
     CanInteract.Clear();
     CanInteract = newCanInteract;
 }
+
+public Vector3 GetWaypointPosition()
+{
+return gameObject.transform.position;
+}
 }

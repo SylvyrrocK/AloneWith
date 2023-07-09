@@ -99,19 +99,25 @@ public class PanicBar : MonoBehaviour
             OnPanicValueChanged.Invoke(Value);
         }
     }
-    public void GetValue(string GetType) // ViewValue | Value
+
+    public float GetValue(string GetType)
     {
-        if(GetType == "Value")
+      if(GetType == "Value")
         {
-          print(Value);
+          return Value;
         }
         if(GetType == "ViewValue")
         {
-          print(ViewValue);
+          return Value;
         }
       if(GetType != null)
       {
         Debug.LogWarning("Get Value type is ViewValue or Value");
       }
+      return 0f;
     }
+    // public void GetValue(string GetType) // ViewValue | Value
+    // {
+        
+    // }
 }

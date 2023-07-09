@@ -7,12 +7,14 @@ public class EnemyMovement : MonoBehaviour
 [SerializeField] private WayCreator WayCreator;
 [SerializeField] private int WayID;
 [SerializeField] private float SmoothingMoveSpeed;
+[SerializeField] private float WalkProgress;
 
 
 void Start()
 {
 int RandomId = Random.Range(0,WayCreator.Waypoints.Count);
 WayID = WayCreator.Waypoints[RandomId].WaypointID;
+WalkTo(gameObject.transform.position, false);
 }
 void WalkTo(Vector3 WalkPosition, bool Smooth)
 {
@@ -25,7 +27,8 @@ void WalkTo(Vector3 WalkPosition, bool Smooth)
   {
     if(SelectedWaypoint)
     {
-      gameObject.transform.position = SelectedWaypoint.gameObject.transform.position;  
+      gameObject.transform.position = SelectedWaypoint.GetWaypointPosition(); 
+      Debug.LogError(SelectedWaypoint.GetWaypointPosition());
     }
     else
     {
