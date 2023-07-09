@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         gameOver = false;
+        Time.timeScale = 1;
     }
 
     public void LevelCompleted()

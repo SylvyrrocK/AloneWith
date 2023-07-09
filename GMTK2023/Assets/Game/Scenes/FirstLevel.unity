@@ -449,7 +449,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 25
+          m_FloatArgument: 0.2
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -647,6 +647,7 @@ MonoBehaviour:
   objectRender: {fileID: 0}
   startingColor: {r: 0, g: 0, b: 0, a: 0}
   playerStats: {fileID: 1498013914}
+  panic: 0
 --- !u!212 &105055985
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3380,6 +3381,7 @@ MonoBehaviour:
   objectRender: {fileID: 105055985}
   startingColor: {r: 0, g: 0, b: 0, a: 0}
   playerStats: {fileID: 0}
+  panic: 0
 --- !u!4 &712957709
 Transform:
   m_ObjectHideFlags: 0
@@ -10429,6 +10431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panicLevel: 0
+  timeBetween: 4
   gameController: {fileID: 536968100}
   kidFlashlight: {fileID: 1581219908}
   kidWakeUpWarning: {fileID: 1025713922}
@@ -10437,6 +10440,7 @@ MonoBehaviour:
   kidFeet2: {fileID: 106590080}
   enemySprite: {fileID: 0}
   isActive: 1
+  animationIsOver: 1
 --- !u!1 &1508158981
 GameObject:
   m_ObjectHideFlags: 0
@@ -10588,6 +10592,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1227812025}
     m_Modifications:
+    - target: {fileID: 424192243160167978, guid: 08e3b8798a7ce9742ad5684e93028733, type: 3}
+      propertyPath: MaximumValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 424192243160167978, guid: 08e3b8798a7ce9742ad5684e93028733, type: 3}
+      propertyPath: WarningValue
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 476881363716614298, guid: 08e3b8798a7ce9742ad5684e93028733, type: 3}
       propertyPath: m_Color.b
       value: 0

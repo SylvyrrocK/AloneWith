@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
     [Header("Player Stats:")]
     public float panicLevel;
+    public float timeBetween = 3f;
 
     [SerializeField] GameController gameController;
 
@@ -18,11 +19,13 @@ public class PlayerStats : MonoBehaviour
 
     public GameObject enemySprite;
 
-    public bool isActive = true;
+    public bool isActive = false;
+    public bool animationIsOver = true;
     // Start is called before the first frame update
     void Start()
     {
         panicLevel = 0;
+        isActive = false; // TODO: Set this variable to false when ghost is hidden, else set to true
     }
 
     void Update()
@@ -45,34 +48,40 @@ public class PlayerStats : MonoBehaviour
     IEnumerator RandomWaiter()
     {
         //Warning sign timer
-        int wait_time = Random.Range(2, 3);
+        float wait_time = Random.Range(timeBetween, timeBetween+1);
         yield return new WaitForSeconds(wait_time);
-        kidWakeUpWarning.SetActive(true); // TODO: UPDATE WAKE UP WARNING TO PROPER SPRITE
+        kidWakeUpWarning.SetActive(true);
 
         //Player wake up timer
-        int wait_time2 = Random.Range(2, 3);
+        float wait_time2 = Random.Range(timeBetween, timeBetween+1);
         yield return new WaitForSeconds(wait_time);
         RemoveKidSprite();
         kidFlashlight.SetActive(true);
 
-        if (isActive) // TODO: UPDATE Game over CONDITIONS
+        if (isActive)
         {
             gameController.GameOver();
         }
         else
         {
+            float wait_time3 = Random.Range(timeBetween, timeBetween + 1);
+            yield return new WaitForSeconds(wait_time);
             RemoveKidSprite();
             kidSleep.SetActive(true);
+            animationIsOver = true;
         }
         Debug.Log("Kid is sleeping");
-
-        //Back to normal state timer
-        int wait_time3 = Random.Range(2, 3);
-        yield return new WaitForSeconds(wait_time);
     }
 
     public void KidWakeUp()
     {
-        StartCoroutine(RandomWaiter());
+        if (animationIsOver)
+        {
+            animationIsOver = false;
+            StartCoroutine(RandomWaiter());
+        }
+
+        Debug.Log("Current panic level =" + panicLevel);
+        Debug.Log("Time Between = " + timeBetween);
     }
 }
