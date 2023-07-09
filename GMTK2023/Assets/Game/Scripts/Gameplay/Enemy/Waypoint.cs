@@ -25,4 +25,13 @@ public Vector3 GetWaypointPosition()
 {
 return gameObject.transform.position;
 }
+public int GetWaypointID()
+{
+return WaypointID;
+}
+
+public float GetPanicWeight()
+{
+return PanicWeight;
+}
 }

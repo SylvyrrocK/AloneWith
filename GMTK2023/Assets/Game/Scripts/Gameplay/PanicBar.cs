@@ -15,6 +15,7 @@ public class PanicBar : MonoBehaviour
     [SerializeField] private Image BarBackgroundImage;
     [SerializeField] private Image BarFillImage;
     [SerializeField] private GameObject WarningObject;
+    
     private float ViewValue = 0f;
 
     //->>> ACTIONS - OnPanicValueChanged | OnPanicWarning | OnPanicWarningCancel <<<-
@@ -108,7 +109,7 @@ public class PanicBar : MonoBehaviour
         }
         if(GetType == "ViewValue")
         {
-          return Value;
+          return ViewValue;
         }
       if(GetType != null)
       {

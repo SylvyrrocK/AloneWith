@@ -7,6 +7,7 @@ public class WayCreator : MonoBehaviour
     [SerializeField] private GameObject WaypointPrefab;
     [SerializeField] private bool CreationDebug = true;
     [SerializeField] private bool GenerateOnStartScene = true; //if off, way generate from code
+    public float WalkProcent;
     public List<WaypointCollection> Waypoints;
 
 [System.Serializable]
