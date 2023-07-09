@@ -4,7 +4,7 @@ using UnityEngine;
 public class WayCreator : MonoBehaviour
 {
     [SerializeField] private WayCreatorSettings Settings;
-    [SerializeField] private GameObject WaypointObject;
+    [SerializeField] private GameObject WaypointPrefab;
     [SerializeField] private bool CreationDebug = true;
     [SerializeField] private bool GenerateOnStartScene = true; //if off, way generate from code
     public List<WaypointCollection> Waypoints;
@@ -14,6 +14,7 @@ public class WaypointCollection
 {
     public int WaypointID = 0;
     public Waypoint WaypointScript;
+    public GameObject Waypoint;
 }
 
     void Awake()
@@ -34,7 +35,7 @@ public class WaypointCollection
         }
         for(int i = 0; i < Settings.Waypoints.Count; i++)
         {
-            GameObject CreatedWaypoint = Instantiate(WaypointObject,new Vector3(Settings.Waypoints[i]._WaypointPosition.x, Settings.Waypoints[i]._WaypointPosition.y, Settings.Waypoints[i]._WaypointPosition.z) ,Quaternion.identity);
+            GameObject CreatedWaypoint = Instantiate(WaypointPrefab,new Vector3(Settings.Waypoints[i]._WaypointPosition.x, Settings.Waypoints[i]._WaypointPosition.y, Settings.Waypoints[i]._WaypointPosition.z) ,Quaternion.identity);
             Waypoint WaypointObjectScript = CreatedWaypoint.GetComponent<Waypoint>();
             WaypointObjectScript.ChangeWaypointID(Settings.Waypoints[i]._WaypointID);
             WaypointObjectScript.ChangePanicWeight(Settings.Waypoints[i]._PanicWeight);
@@ -52,19 +53,21 @@ public class WaypointCollection
         Debug.LogWarning("Settings not assigned");
         }
     }
-
-    public void GetWaypointByID(int ID)
+// string GetMessage()
+// {
+//     return "Hello";
+// }
+    public Waypoint GetWaypointByID(int ID)
     {
+        Waypoint FindedWaypointObject = null;
         for(int i = 0; i < Waypoints.Count; i++)
         {
             if(Waypoints[i].WaypointID == ID)
             {
-                print(Waypoints[i].WaypointID);
+                FindedWaypointObject = Waypoints[i].WaypointScript;
             }
-        }
-        
-    }
+        } 
+        return FindedWaypointObject;
 
- 
-    
+    }  
 }
