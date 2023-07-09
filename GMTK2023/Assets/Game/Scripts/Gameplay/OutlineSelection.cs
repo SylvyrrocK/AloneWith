@@ -34,7 +34,8 @@ public class OutlineSelection : MonoBehaviour
     void OnMouseDown()
     {
         playerStats.panicLevel += 1;
-        Debug.Log(playerStats.panicLevel);
+        playerStats.KidWakeUp();
+        Debug.Log("Current panic level =" + playerStats.panicLevel);
     }
 }
 
