@@ -12,6 +12,7 @@ public class PanicBar : MonoBehaviour
 
     [Header("VIEW SETTINGS")]
     [SerializeField] private Slider BarSlider;
+    [SerializeField] private bool UseWarning;
     [SerializeField] private Image BarBackgroundImage;
     [SerializeField] private Image BarFillImage;
     [SerializeField] private GameObject WarningObject;
@@ -39,7 +40,7 @@ public class PanicBar : MonoBehaviour
         ChangeVisibility(false);
       }
 
-      if(Value >= WarningValue && WarningObject.activeSelf == false){
+      if(Value >= WarningValue && WarningObject.activeSelf == false && UseWarning == true){
       WarningObject.SetActive(true);
       OnPanicWarning.Invoke();
       }else if(Value < WarningValue && WarningObject.activeSelf == true){
