@@ -9,8 +9,8 @@ public class GameController : MonoBehaviour
 
     public EnemyMovement Enemy;
 
-
     public static bool gameOver;
+
     void Update()
     {
         if(Input.GetKey("space"))
@@ -25,15 +25,16 @@ public class GameController : MonoBehaviour
         }
     }
  
-    // Start is called before the first frame update
     void EnemyWalk()
     {
         Enemy.Walk();
     }
+
     void EnemyHide()
     {
         Enemy.Hide();
     }
+
     void Start()
     {
         gameOver = false;
