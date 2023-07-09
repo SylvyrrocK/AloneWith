@@ -6,26 +6,31 @@ public class PlayerStats : MonoBehaviour
 {
     [Header("Player Stats:")]
     public float panicLevel;
+    public float timeBetween = 3f;
 
-    public GameController gameController;
+    [SerializeField] GameController gameController;
 
     [Header("Game Object:")]
-    public GameObject kidFlashlight;
-    public GameObject kidWakeUpWarning;
-    public GameObject kidSleep;
-    public GameObject kidFeet1;
-    public GameObject kidFeet2;
+    [SerializeField] GameObject kidFlashlight;
+    [SerializeField] GameObject kidWakeUpWarning;
+    [SerializeField] GameObject kidSleep;
+    [SerializeField] GameObject kidFeet1;
+    [SerializeField] GameObject kidFeet2;
 
+    public GameObject enemySprite;
 
+    public bool isActive = false;
+    public bool animationIsOver = true;
     // Start is called before the first frame update
     void Start()
     {
         panicLevel = 0;
+        isActive = false; // TODO: Set this variable to false when ghost is hidden, else set to true
     }
 
     void Update()
     {
-       if (panicLevel >= 2)
+       if (panicLevel >= 5)
         {
             gameController.LevelCompleted();
         }
@@ -42,36 +47,41 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator RandomWaiter()
     {
-        Debug.Log("Kid woke up");
-
         //Warning sign timer
-        int wait_time = Random.Range(2, 3);
+        float wait_time = Random.Range(timeBetween, timeBetween+1);
         yield return new WaitForSeconds(wait_time);
-        kidWakeUpWarning.SetActive(true); // TODO: UPDATE WAKE UP WARNING TO PROPER SPRITE
+        kidWakeUpWarning.SetActive(true);
 
         //Player wake up timer
-        int wait_time2 = Random.Range(2, 3);
+        float wait_time2 = Random.Range(timeBetween, timeBetween+1);
         yield return new WaitForSeconds(wait_time);
         RemoveKidSprite();
         kidFlashlight.SetActive(true);
 
-        //Back to normal state timer
-        int wait_time3 = Random.Range(2, 3);
-        yield return new WaitForSeconds(wait_time);
-        if (panicLevel >= 3) // TODO: UPDATE LOSE CONDITIONS
+        if (isActive)
         {
             gameController.GameOver();
         }
         else
         {
+            float wait_time3 = Random.Range(timeBetween, timeBetween + 1);
+            yield return new WaitForSeconds(wait_time);
             RemoveKidSprite();
             kidSleep.SetActive(true);
+            animationIsOver = true;
         }
-        Debug.Log("Kid woke up");
+        Debug.Log("Kid is sleeping");
     }
 
     public void KidWakeUp()
     {
-        StartCoroutine(RandomWaiter());
+        if (animationIsOver)
+        {
+            animationIsOver = false;
+            StartCoroutine(RandomWaiter());
+        }
+
+        Debug.Log("Current panic level =" + panicLevel);
+        Debug.Log("Time Between = " + timeBetween);
     }
 }

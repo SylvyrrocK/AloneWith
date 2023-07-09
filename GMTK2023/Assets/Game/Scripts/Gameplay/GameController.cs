@@ -38,6 +38,7 @@ public class GameController : MonoBehaviour
     {
         gameOver = false;
         QualitySettings.vSyncCount = 1;
+        Time.timeScale = 1;
     }
 
     public void LevelCompleted()
