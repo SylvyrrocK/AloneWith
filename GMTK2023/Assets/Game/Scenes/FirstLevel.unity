@@ -2746,7 +2746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -28.183472, y: 0}
+  m_AnchoredPosition: {x: -28.183594, y: 0}
   m_SizeDelta: {x: 315.7479, y: 230.1672}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &668244597
@@ -11402,7 +11402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WayCreator: {fileID: 690290177}
   WayID: 0
-  TryIDWay: 0
+  TryIDWay: 1
   WalkToID: 0
   SmoothingMoveSpeed: 0.2
   WalkProgress: 0.9

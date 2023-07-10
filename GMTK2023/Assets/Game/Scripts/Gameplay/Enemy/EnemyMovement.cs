@@ -68,9 +68,10 @@ public void WalkTo(Vector3 WalkPosition, bool Smooth)
     {
       Debug.LogError("NERABOTAET");
     }
-    if((Mathf.Abs(SelectedWaypoint.gameObject.transform.position.x-gameObject.transform.position.x))<1)
+    if(Vector3.Distance(SelectedWaypoint.gameObject.transform.position, gameObject.transform.position)<1)
     {
-    //TryIDWay = SelectedWaypoint.GetWaypointID();
+    
+    TryIDWay = WayID;
     PanicBar.ChangeValue(SelectedWaypoint.GetPanicWeight());
     }
   }
